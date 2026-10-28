@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block title %}Productos · NovaComercial{% endblock %}
+{% block content %}
+<section class="page-heading"><div><p class="eyebrow">INVENTARIO</p><h1>Productos</h1><p class="muted">Administra los artículos disponibles para la venta.</p></div><a class="button" href="{{ url_for('main.product_new') }}">＋ Nuevo producto</a></section>
+<section class="panel">{% if products %}<div class="table-wrap"><table><thead><tr><th>Producto</th><th>Categoría</th><th>Precio</th><th>Disponible</th><th></th></tr></thead><tbody>{% for product in products %}<tr><td><strong>{{ product.name }}</strong><small class="cell-sub">Código #{{ product.id }}</small></td><td><span class="tag">{{ product.category }}</span></td><td class="amount">{{ money(product.price_cents) }}</td><td><span class="stock {% if product.stock == 0 %}out{% elif product.stock < 5 %}low{% endif %}">{{ product.stock }} unidades</span></td><td><a class="text-link" href="{{ url_for('main.product_edit', product_id=product.id) }}">Editar</a></td></tr>{% endfor %}</tbody></table></div>{% else %}<div class="empty"><span class="empty-icon">□</span><h3>No hay productos registrados</h3><p>Agrega el primer producto para comenzar a gestionar el inventario.</p><a class="button" href="{{ url_for('main.product_new') }}">Registrar producto</a></div>{% endif %}</section>
+{% endblock %}

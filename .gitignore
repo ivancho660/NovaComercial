@@ -1,0 +1,35 @@
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Python: bytecode y cachés
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Variables de entorno y secretos locales
+.env
+.env.*
+!.env.example
+
+# Bases de datos SQLite locales (se crean al iniciar la aplicación)
+instance/*.db
+instance/*.sqlite
+instance/*.sqlite3
+instance/*.db-wal
+instance/*.db-shm
+
+# Registros y archivos temporales
+*.log
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editores
+.vscode/
+.idea/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
